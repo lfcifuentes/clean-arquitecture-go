@@ -1,0 +1,24 @@
+
+services:
+
+  postgres:
+    image: postgres:13
+    container_name: repository-postgres
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+
+  postgres_test:
+    image: postgres:13
+    container_name: repository-postgres-test
+    environment:
+      POSTGRES_USER: ${DB_TEST_USERNAME}
+      POSTGRES_PASSWORD: ${DB_TEST_PASSWORD}
+    ports:
+      - ${DB_TEST_PORT}:${DB_TEST_PORT}
+
+volumes:
+  mysql-data:
+  mysql-data-test:
